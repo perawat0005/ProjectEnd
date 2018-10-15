@@ -1,0 +1,42 @@
+<ion-content class="background">
+  <ion-title>
+    <h1>Wellcome</h1>
+  </ion-title>
+  <ion-card>
+    <ion-card-header>
+      <ion-title center><h2>Login</h2></ion-title>
+    </ion-card-header>
+    <ion-card-content>
+      <ion-list no-lines>
+        <ion-item>
+          <ion-label floating>Email</ion-label>
+          <ion-input type="text" #email></ion-input>
+        </ion-item>
+
+        <ion-item>
+          <ion-label floating>Password</ion-label>
+          <ion-input type="password" #password></ion-input>
+        </ion-item>
+
+      </ion-list>
+  
+      <div>
+        <button ion-button color="secondary" block (click)="logIn()">LOGIN</button>
+      </div>
+      <b>OR</b>
+      <button ion-button color="primary" ion-left block>
+        <ion-icon name="logo-facebook"></ion-icon>
+        <div>Login with Facebook</div>
+      </button>
+
+      <button ion-button color="danger" ion-left block>
+        <ion-icon name="logo-google"></ion-icon>
+        <div>Login with Google</div>
+      </button>
+
+      <div>
+        <button ion-button block outline (click)="CreateAcc()">Create Account</button>
+      </div> 
+    </ion-card-content>
+  </ion-card>
+</ion-content>

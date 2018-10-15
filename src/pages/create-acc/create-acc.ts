@@ -1,12 +1,9 @@
-import { Component } from '@angular/core';
-import { IonicPage, NavController, NavParams } from 'ionic-angular';
+import { Component, ViewChild } from '@angular/core';
+import { IonicPage, NavController, NavParams, AlertController } from 'ionic-angular';
 import { HomePage } from '../home/home';
-/**
- * Generated class for the CreateAccPage page.
- *
- * See https://ionicframework.com/docs/components/#navigation for more info on
- * Ionic pages and navigation.
- */
+import { AngularFireAuth } from 'angularfire2/auth';
+import { LoginPage } from '../login/login';
+
 
 @IonicPage()
 @Component({
@@ -15,15 +12,37 @@ import { HomePage } from '../home/home';
 })
 export class CreateAccPage {
 
-  constructor(public navCtrl: NavController, public navParams: NavParams) {
+  /*@ViewChild('name') name; */
+  @ViewChild('email') email;
+  @ViewChild('password') password;
+  /*@ViewChild('tel') tel; */
+
+  constructor(private alertCtrl: AlertController,private fire: AngularFireAuth,public navCtrl: NavController, public navParams: NavParams) {
   }
 
   ionViewDidLoad() {
     console.log('ionViewDidLoad CreateAccPage');
   }
 
-  onGotoSignUp(){
-    this.navCtrl.push(HomePage);
-  }
+  alert(message: string) {
+    this.alertCtrl.create({
+      title: 'Info!',
+      subTitle: message,
+      buttons: ['OK']
+    }).present();
+  }  
 
+  createUser(){
+    this.fire.auth.createUserWithEmailAndPassword(this.email.value, this.password.value)
+      .then(data =>{
+        console.log('got data',data);
+        this.alert('สร้างบัญชีสำเร็จ')
+        this.navCtrl.push(LoginPage);
+      })
+      .catch(error => {
+        console.log('got an error',error);
+        this.alert(error.massage);
+      });
+      console.log('Would register user with ', this.email.value, this.password.value);
+  }
 }

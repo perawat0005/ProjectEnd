@@ -1,28 +1,20 @@
 <ion-content class="background">
   <ion-navbar>
-    <ion-title center><h3>SignUp</h3></ion-title>
+    <ion-title center><h3>Create Account</h3></ion-title>
   </ion-navbar>
   <ion-card>
     <ion-card-content>
       <ion-list no-lines>
         <ion-item>
-          <ion-input type="text" placeholder="Name"></ion-input>
+          <ion-input type="text" placeholder="Email" #email></ion-input>
         </ion-item>
 
         <ion-item>
-          <ion-input type="email" placeholder="Email"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-input type="text" placeholder="Password"></ion-input>
-        </ion-item>
-
-        <ion-item>
-          <ion-input type="tel" placeholder="Telephone"></ion-input>
+          <ion-input type="text" placeholder="Password" #password></ion-input>
         </ion-item>
       </ion-list>
         <div>
-          <button ion-button color="secondary" block (click)="onGotoSignUp()">Sign Up</button>
+          <button ion-button color="secondary" block (click)="createUser()" item-left>Sign Up</button>
         </div>
     </ion-card-content>
   </ion-card>

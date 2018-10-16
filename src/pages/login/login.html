@@ -1,42 +1,57 @@
-<ion-content class="background">
-  <ion-title>
-    <h1>Wellcome</h1>
-  </ion-title>
-  <ion-card>
-    <ion-card-header>
-      <ion-title center><h2>Login</h2></ion-title>
-    </ion-card-header>
-    <ion-card-content>
-      <ion-list no-lines>
-        <ion-item>
-          <ion-label floating>Email</ion-label>
-          <ion-input type="text" #email></ion-input>
-        </ion-item>
+<ion-content class="animated fadeIn login auth-page">
 
-        <ion-item>
-          <ion-label floating>Password</ion-label>
-          <ion-input type="password" #password></ion-input>
-        </ion-item>
+  <div padding-horizontal text-center class="animated fadeInDown">
+    <h2 ion-text class="text-primary">
+      <strong>Wellcome</strong>
+    </h2>
+  </div>
 
-      </ion-list>
+  <form class="list-form">
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="mail" item-start class="text-primary"></ion-icon>
+          Email
+        </ion-label>
+        <ion-input type="email" #email></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label floating>
+          <ion-icon name="lock" item-start class="text-primary"></ion-icon>
+          Password
+        </ion-label>
+        <ion-input type="password" #password></ion-input>
+      </ion-item>
+    </form>
+
+    <br>
   
       <div>
-        <button ion-button color="secondary" block (click)="logIn()">LOGIN</button>
+        <button ion-button icon-start block color="secondary" tappable (click)="logIn()">LOGIN</button>
       </div>
-      <b>OR</b>
+
+      <br>
+      <div text-center>
+          <strong>OR</strong>
+      </div>
+      <br>
+
       <button ion-button color="primary" ion-left block>
         <ion-icon name="logo-facebook"></ion-icon>
         <div>Login with Facebook</div>
       </button>
+
+      <br>
 
       <button ion-button color="danger" ion-left block>
         <ion-icon name="logo-google"></ion-icon>
         <div>Login with Google</div>
       </button>
 
+      <br>
+
       <div>
         <button ion-button block outline (click)="CreateAcc()">Create Account</button>
       </div> 
-    </ion-card-content>
-  </ion-card>
-</ion-content>
+</ion-content> 
+
